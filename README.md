@@ -1,4 +1,4 @@
-I built this because I wanted a computer vision project that actually maps to something real — solder defect inspection is a genuine problem on electronics assembly lines and a good fit for CNNs.
+I built this because I wanted a computer vision project that actually maps to something real solder defect inspection is a genuine problem on electronics assembly lines and a good fit for CNNs.
 The whole thing runs as a single script. No dataset to download, no API keys, nothing to configure. Just run it and it handles everything from generating training data to producing inspection reports.
 bashpython pipeline.py
 
