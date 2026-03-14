@@ -40,30 +40,7 @@ Three conv blocks, progressively deeper (16 → 32 → 64 filters), BatchNorm af
 Trained with Adam at 3e-4, label smoothing of 0.05, EarlyStopping watching val_accuracy. Balanced 80/20 split per class so the val set always has equal representation.
 Bridge detection fallback
 The CNN handles classification, but I also wrote a rule-based bridge detector using contour analysis as a safety net. After thresholding, it looks for blobs in the 40–600px² area range with aspect ratio > 1.8 (elongated = bridge-shaped). If the CNN says clean but contours find a bridge, the contour result wins. Belt and suspenders.
-Reports
-**After training and running inference on 80 test boards, the pipeline saves:**
-reports/
-├── training_history.png      # accuracy + loss curves
-├── dataset_samples.png       # 4 samples per class in a grid
-├── sample_predictions.png    # GT vs predicted with confidence scores
-├── confusion_matrix.png      
-├── batch_summary.png         # pass/fail pie, defect breakdown, latency histogram
-└── batch_summary.csv         # one row per inspected board
 
-Project layout
-PCB Defect Detection System/
-├── pipeline.py        ← everything is in here
-├── data/              ← created on first run
-│   ├── good_solder/
-│   ├── solder_bridge/
-│   ├── missing_component/
-│   ├── cold_joint/
-│   └── manifest.json
-├── models/
-│   ├── pcb_classifier.keras
-│   └── training_history.json
-└── reports/
-    └── (all the PNGs + CSV)
 
 Installation
 bashpip install opencv-python numpy matplotlib scikit-learn tensorflow
